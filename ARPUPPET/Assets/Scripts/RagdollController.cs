@@ -8,18 +8,15 @@ public class RagdollController : MonoBehaviour
     public static RagdollController instance;
     public Material lineMaterial;
     public List<MarionetteVisuals> marionetteVisuals = new List<MarionetteVisuals>();
-
     private List<LineRenderer> lines = new List<LineRenderer>();
-    
+
     void Awake()
     {
-
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
-
-        for(int i = 0; i < marionetteVisuals.Count; i++)
+        for (int i = 0; i < marionetteVisuals.Count; i++)
         {
             LineRenderer line = marionetteVisuals[i].fingerTip.gameObject.AddComponent<LineRenderer>();
             lines.Add(line);
@@ -30,8 +27,6 @@ public class RagdollController : MonoBehaviour
             line.endColor = Color.white;
         }
     }
-
-    
     void Update()
     {
         for (int i = 0; i < marionetteVisuals.Count; i++)
